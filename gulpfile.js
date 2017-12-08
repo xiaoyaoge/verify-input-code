@@ -78,6 +78,16 @@ gulp.task('start', ['sass'], function() {
 		.pipe(notify("<%= file.relative %> 成功生成!"));
 });
 
+gulp.task('bump',function(){
+
+    gulp.src('./package.json')
+
+    .pipe(bump())
+
+    .pipe(gulp.dest('./'));
+
+});
+
 gulp.task('uglify', function() {
 	return gulp.src('./dist/VerifyInputCode.js')
 		.pipe(webpack({
